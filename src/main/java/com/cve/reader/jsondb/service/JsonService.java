@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class JsonService {
 
-    private CveRepository cveRepository;
+    private final CveRepository cveRepository;
 
     public JsonService(CveRepository cveRepository) {
         this.cveRepository = cveRepository;
@@ -23,7 +23,7 @@ public class JsonService {
         return cveRepository.save(entry);
     }
 
-    public Iterable<?> save(List<?> allEntries) {
+    public Iterable<CveObject> save(List<CveObject> allEntries) {
         return cveRepository.saveAll(allEntries);
     }
 }
